@@ -1,0 +1,9 @@
+export { default as User } from './User';
+export { default as Course } from './Course';
+export { default as Degree } from './Degree';
+export { default as Notification } from './Notification';
+export { default as Post } from './Post';
+export { default as Result } from './Result';
+export { default as Section } from './Section';
+export { default as Subject } from './Subject';
+export { default as Teaches } from './Teaches';
