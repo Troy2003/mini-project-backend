@@ -4,6 +4,7 @@ import {
   registerController,
   loginController,
   userController,
+  userHandleController,
   forgotController,
   courseController,
   degreeController,
@@ -23,6 +24,9 @@ router.post("/register", registerController.register);
 router.post("/login", loginController.login);
 router.post("/me", authHeader, userController.me);
 router.put("/me", authHeader, userController.update);
+
+router.post('/student', [authHeader, teacher], userHandleController.student)
+router.post('/teacher', [authHeader, admin], userHandleController.teacher)
 
 router.post("/forgot", forgotController.sendLink);
 router.get("/reset/:id/:token", forgotController.verifyLink);
