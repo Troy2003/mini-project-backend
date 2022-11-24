@@ -66,15 +66,15 @@ const sectionController = {
         }
 
         //IF USER PROVIDE ALL REQUIRED DATA THEN EXTRACT DATA FROM REQUEST BODY
-        const { code, name, students: newStudents, teachers: newTeachers } = req.body;
+        const { code, name, student, teacher } = req.body;
 
         try {
             //TRY TO UPDATE A SECTION OBJECT IN DATABASE
             const section = await Section.findOneAndUpdate({ _id: id }, {
                 code,
                 name,
-                $addToSet: { students: { $each: newStudents } },
-                $addToSet: { teachers: { $each: newTeachers } }
+                $addToSet: { students: student },
+                $addToSet: { teachers: teacher }
             });
 
             if (!section) {

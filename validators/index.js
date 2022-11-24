@@ -38,8 +38,8 @@ export const sectionValidator = Joi.object({
 export const sectionUpdateValidator = Joi.object({
     code: Joi.string(),
     name: Joi.string(),
-    students: Joi.array(),
-    teachers: Joi.array()
+    student: Joi.string(),
+    teacher: Joi.string()
 });
 
 // ********* SUBJECT ***********
