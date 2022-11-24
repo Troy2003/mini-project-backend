@@ -37,7 +37,7 @@ const userSchema = mongoose.Schema(
 
         contact: String,
 
-        branch: String,
+        branch: mongoose.Schema.Types.ObjectId,
 
         section: String,
 

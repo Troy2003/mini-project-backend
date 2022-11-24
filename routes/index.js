@@ -25,8 +25,9 @@ router.post("/login", loginController.login);
 router.post("/me", authHeader, userController.me);
 router.put("/me", authHeader, userController.update);
 
-router.post('/student', [authHeader, teacher], userHandleController.student)
-router.post('/teacher', [authHeader, admin], userHandleController.teacher)
+router.get('/student', userHandleController.student)
+router.get('/teacher', userHandleController.teacher)
+
 
 router.post("/forgot", forgotController.sendLink);
 router.get("/reset/:id/:token", forgotController.verifyLink);
