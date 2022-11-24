@@ -66,15 +66,15 @@ const courseController = {
         }
 
         //IF USER PROVIDE ALL REQUIRED DATA THEN EXTRACT DATA FROM REQUEST BODY
-        const { code, name, subjects: newSubjects, sections: newSections, semestercount } = req.body;
+        const { code, name, subject, section, semestercount } = req.body;
 
         try {
             //TRY TO UPDATE A COURSE OBJECT IN DATABASE
             const course = await Course.findOneAndUpdate({ _id: id }, {
                 code,
                 name,
-                $addToSet: { sections: { $each: newSections } },
-                $addToSet: { subjects: { $each: newSubjects } },
+                $addToSet: { subjects: subject },
+                $addToSet: { sections: section },
                 semestercount
             });
 

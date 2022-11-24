@@ -10,7 +10,7 @@ export const degreeValidator = Joi.object({
 export const degreeUpdateValidator = Joi.object({
     code: Joi.string(),
     name: Joi.string().lowercase(),
-    courses: Joi.array(),
+    course: Joi.string(),
 });
 
 
@@ -24,8 +24,8 @@ export const courseValidator = Joi.object({
 export const courseUpdateValidator = Joi.object({
     code: Joi.string(),
     name: Joi.string().lowercase(),
-    sections: Joi.array(),
-    subjects: Joi.array(),
+    section: Joi.string(),
+    subject: Joi.string(),
     semestercount: Joi.number()
 });
 

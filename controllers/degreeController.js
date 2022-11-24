@@ -66,14 +66,14 @@ const degreeController = {
         }
 
         //IF USER PROVIDE ALL REQUIRED DATA THEN EXTRACT DATA FROM REQUEST BODY
-        const { code, name, courses: newCourses } = req.body;
+        const { code, name, course } = req.body;
 
         try {
             //TRY TO UPDATE A DEGREE OBJECT IN DATABASE
             const degree = await Degree.findOneAndUpdate({ _id: id }, {
                 code,
                 name,
-                $addToSet: { courses: { $each: newCourses } },
+                $addToSet: { courses: course },
             });
 
             if (!degree) {
